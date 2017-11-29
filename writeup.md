@@ -14,7 +14,8 @@ workers = 1
 Achieves 0.417639112688 final score
 
 Both models in the weights folder achieve satisfactory results.  
-These results for the following architecture are in my_amazing_model.h5 <br>
+The results for the following architecture are in my_amazing_model.h5  and are reflected in model_training.html they are not currently reflected in model_training.ipynb. 
+<br>
 
 
 | Layer         		|     Description	        					| 
@@ -42,7 +43,8 @@ The first step in the decoder block is blinear upsampling. This is the process o
 ### Hyper Parameters
 My goal was to maximize the batch size so that the ram on my GPU was fully utilized. For the size of this network I could have choses 128 batch size, I prefer to use powers of two, but it was occasionally unstable at this size so I chose to use the next lower pwer of two, 64. 
 There are about 4100 images in the training data so dividing that by 64 gets a number close to 64, so I my steps per epoch to 64.
-I reduced the validation steps to 25 because It got the same results as higer numbers but didn't take as much time to run. I chose to only use 1 worker because I was training on my GPU and I have only 1. The learning rate I settled on was .001. This took longer to converge than higher learning rates, but  at higher learning rates the performance of the model was very dependant on the  results or the last epoch. Learning rate was my biggest issue for this project. Higher learning rates yeilded decent reults, though not passing, with fewer epochs and simpler network arctitecture, but the results were inconsistent and  were coming up 0.1-0.2 points away from passing. If I lowered the learning rate and increased the epochs, then training would often get stuck in local minima. This lead me to adding a few extra  seperable layers to the architecture. I was able to keep the learning rate lower, but reached convergence (possibly local minima as well)  at a much better validation loss and achieved a passing result. 
+I reduced the validation steps to 25 because It got the same results as higer numbers but didn't take as much time to run. I chose to only use 1 worker because I was training on my GPU and I have only 1. The learning rate I settled on was .001. This took longer to converge than higher learning rates, but  at higher learning rates the performance of the model was very dependant on the  results or the last epoch. Learning rate was my biggest issue for this project. Higher learning rates yeilded decent reults, though not passing, with fewer epochs and simpler network arctitecture, but the results were inconsistent and  were coming up 0.1-0.2 points away from passing. If I lowered the learning rate and increased the epochs, then training would often get stuck in local minima. This lead me to adding a few extra  seperable layers to the architecture. I was able to keep the learning rate lower, but reached convergence (possibly local minima as well)  at a much better validation loss and achieved a passing result. I chose to train this model with 40 epocs. It appears to converge around 20 epochs but the results at each epoch in that range varied to widely so I doubled it to achive more consistent results.
+
 
 ### Model Use
 This model architecture could be used to follow just about any object provided that the input data is similiar in nature. Meaning that the object would have to be a specific color that is unique in the scene for which a mask could be produced to isolate it. This specific model that is trained on this specific data would not generalize outside following a human. 
