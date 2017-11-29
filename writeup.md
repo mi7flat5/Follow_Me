@@ -1,5 +1,5 @@
 [![Udacity - Robotics NanoDegree Program](https://s3-us-west-1.amazonaws.com/udacity-robotics/Extra+Images/RoboND_flag.png)](https://www.udacity.com/robotics)
-## Deep Learning Project - Follow Me##
+## Deep Learning Project - Follow Me
 [image_0]: ./docs/misc/sim_screenshot.png
 ![alt text][image_0] 
 
