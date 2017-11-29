@@ -12,7 +12,7 @@ validation_steps = 25
 workers = 1
 
 Achieves 0.417639112688 final score
-
+## Please refer to model_training.html for results of this architecture
 Both models in the weights folder achieve satisfactory results.  
 The results for the following architecture are in my_amazing_model.h5  and are reflected in model_training.html they are not currently reflected in model_training.ipynb. 
 <br>
